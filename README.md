@@ -1,52 +1,34 @@
-# smart-code-screenshots-intellij-plugin
-
-![Build](https://github.com/anton-erofeev/smart-code-screenshots-intellij-plugin/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
-
-## Template ToDo list
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Get familiar with the [template documentation][template].
-- [ ] Adjust the [pluginGroup](./gradle.properties) and [pluginName](./gradle.properties), as well as the [id](./src/main/resources/META-INF/plugin.xml) and [sources package](./src/main/kotlin).
-- [ ] Adjust the plugin description in `README` (see [Tips][docs:plugin-description])
-- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html?from=IJPluginTemplate).
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
-- [ ] Set the `MARKETPLACE_ID` in the above README badges. You can obtain it once the plugin is published to JetBrains Marketplace.
-- [ ] Set the [Plugin Signing](https://plugins.jetbrains.com/docs/intellij/plugin-signing.html?from=IJPluginTemplate) related [secrets](https://github.com/JetBrains/intellij-platform-plugin-template#environment-variables).
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html?from=IJPluginTemplate).
-- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
-- [ ] Configure the [CODECOV_TOKEN](https://docs.codecov.com/docs/quick-start) secret for automated test coverage reports on PRs
+# Smart Code Screenshots IntelliJ Plugin
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+Smart Code Screenshots is a plugin for IntelliJ IDEA that lets you quickly create beautiful screenshots of selected code directly from the editor.
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+## Features
+- Create screenshots of selected code with syntax highlighting and formatting
+- Copy screenshots to clipboard with a single command
+- Save screenshots as PNG files
+- Quick access via editor context menu and keyboard shortcut
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
+## How to Use
+1. Select the code fragment you want in the editor.
+2. Right-click and choose **Screenshot Selected Code** or use the shortcut <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>.
+3. The screenshot will be copied to your clipboard. You can also save it as a file via the notification popup.
 <!-- Plugin description end -->
 
 ## Installation
+- From Marketplace: search for "Smart Code Screenshots" in IntelliJ IDEA plugins.
+- Or build manually:
+  1. Clone the repository
+  2. Run `./gradlew build`
+  3. Install the JAR from `build/libs` via **Settings → Plugins → Install plugin from disk...**
 
-- Using the IDE built-in plugin system:
-  
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "smart-code-screenshots-intellij-plugin"</kbd> >
-  <kbd>Install</kbd>
-  
-- Using JetBrains Marketplace:
+## Requirements
+- IntelliJ IDEA 2022.3 or newer
+- JDK 17+
 
-  Go to [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID) and install it by clicking the <kbd>Install to ...</kbd> button in case your IDE is running.
-
-  You can also download the [latest release](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID/versions) from JetBrains Marketplace and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
-
-- Manually:
-
-  Download the [latest release](https://github.com/anton-erofeev/smart-code-screenshots-intellij-plugin/releases/latest) and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
-
+## Feedback & Contributions
+- Report bugs and suggest features via [Issues](https://github.com/antonerofeev/smart-code-screenshots-intellij-plugin/issues)
+- Pull requests are welcome!
 
 ---
-Plugin based on the [IntelliJ Platform Plugin Template][template].
-
-[template]: https://github.com/JetBrains/intellij-platform-plugin-template
-[docs:plugin-description]: https://plugins.jetbrains.com/docs/intellij/plugin-user-experience.html#plugin-description-and-presentation
+Author: [anton-erofeev](https://github.com/antonerofeev)
