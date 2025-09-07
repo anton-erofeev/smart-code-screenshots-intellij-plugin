@@ -1,15 +1,33 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.antonerofeev.smartcodescreenshotsintellijplugin</id>
-    <name>smart-code-screenshots-intellij-plugin</name>
-    <vendor>anton-erofeev</vendor>
+    <id>com.github.antonerofeev.smartcodescreenshots</id>
+    <name>Smart Code Screenshots</name>
+    <vendor url="https://plugins.jetbrains.com/vendor/0f2f64fb-8354-4c08-8f5a-40467be07338">Anton Erofeev</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
+    <resource-bundle>messages.Bundle</resource-bundle>
 
+    <description><![CDATA[
+       Smart Code Screenshots – is a simple and useful tool for developers that lets you instantly capture styled screenshots of your code. The plugin integrates into the editor’s context menu, making it quick and convenient to share code snippets in a visually appealing way.
+    ]]></description>
+
+    <actions>
+        <action id="com.github.antonerofeev.smartcodescreenshots.actions.CopyScreenshotAction"
+                class="com.github.antonerofeev.smartcodescreenshots.actions.CopyScreenshotAction"
+                text="Screenshot Selected Code"
+                description="Screenshot the selected code">
+            <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="CopyAsPlainText"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl S"/>
+        </action>
+    </actions>
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.antonerofeev.smartcodescreenshotsintellijplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.antonerofeev.smartcodescreenshotsintellijplugin.startup.MyProjectActivity" />
+        <applicationService serviceImplementation="com.github.antonerofeev.smartcodescreenshots.utils.SettingsState"/>
+        <notificationGroup displayType="BALLOON" id="Code Screenshots" isLogByDefault="false"/>
+        <applicationConfigurable
+                groupId="editor"
+                instance="com.github.antonerofeev.smartcodescreenshots.ui.ConfigProvider"
+                id="code-screenshots"
+                displayName="Code Screenshots"/>
     </extensions>
 </idea-plugin>
