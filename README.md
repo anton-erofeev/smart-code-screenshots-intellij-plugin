@@ -1,5 +1,9 @@
 # Smart Code Screenshots IntelliJ Plugin
 
+![Build](https://github.com/anton-erofeev/smart-code-screenshots-intellij-plugin/workflows/Build/badge.svg)
+[![Version](https://img.shields.io/jetbrains/plugin/v/com.github.antonerofeev.smartcodescreenshots)](https://plugins.jetbrains.com/plugin/28390-smart-code-screenshots)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/com.github.antonerofeev.smartcodescreenshots.svg)](https://plugins.jetbrains.com/plugin/28390-smart-code-screenshots)
+
 <!-- Plugin description -->
 Smart Code Screenshots is a plugin for IntelliJ IDEA that lets you quickly create beautiful screenshots of selected code directly from the editor.
 
