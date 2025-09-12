@@ -6,6 +6,10 @@ This project adheres to [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+## [0.1.1] - 2025-09-12
+### Added
+- Added support for IntelliJ IDEA versions from 222 to 243
+
 ## [0.1.0] - 2025-09-05
 ### Added
 - First public release
@@ -16,3 +20,4 @@ This project adheres to [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ---
 [0.1.0]: https://github.com/anton-erofeev/smart-code-screenshots-intellij-plugin/releases/tag/v0.1.0
+[0.1.1]: https://github.com/anton-erofeev/smart-code-screenshots-intellij-plugin/releases/tag/v0.1.1
