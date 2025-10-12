@@ -1,6 +1,5 @@
 package com.github.antonerofeev.smartcodescreenshots.utils
 
-import com.github.antonerofeev.smartcodescreenshots.utils.SettingsState
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.*
 import com.intellij.openapi.editor.ex.EditorEx
