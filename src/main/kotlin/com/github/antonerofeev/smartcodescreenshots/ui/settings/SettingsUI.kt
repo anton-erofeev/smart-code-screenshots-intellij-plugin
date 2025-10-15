@@ -2,6 +2,7 @@ package com.github.antonerofeev.smartcodescreenshots.ui.settings
 
 import com.github.antonerofeev.smartcodescreenshots.utils.SettingsState
 import com.github.antonerofeev.smartcodescreenshots.utils.Constants.BACKGROUND_COLOR
+import com.github.antonerofeev.smartcodescreenshots.utils.WatermarkStyle
 import com.intellij.ui.ColorChooserService
 import com.intellij.ui.JBColor
 import java.awt.Color
@@ -27,10 +28,21 @@ class SettingsUI {
     private lateinit var showFileName: JCheckBox
     private lateinit var showWindowControls: JCheckBox
     private lateinit var windowRoundnessInp: JSlider
+    private lateinit var showWatermark: JCheckBox
+    private lateinit var watermarkText: JTextField
+    private lateinit var watermarkStyle: JComboBox<String>
 
     private var initialBgColor: Color = BACKGROUND_COLOR
 
     fun init() {
+        watermarkStyle.model = DefaultComboBoxModel(WatermarkStyle.entries.map { it.displayName }.toTypedArray())
+        
+        updateWatermarkFieldsState()
+        
+        showWatermark.addActionListener {
+            updateWatermarkFieldsState()
+        }
+        
         scaleInp.addChangeListener {
             dataVis.text = String.format(Locale.ENGLISH, "%.2f", scaleInp.value * SLIDER_SCALE)
         }
@@ -73,6 +85,9 @@ class SettingsUI {
             showWindowControls = this@SettingsUI.showWindowControls.isSelected
             showFileName = this@SettingsUI.showFileName.isSelected
             backgroundColor = initialBgColor.rgb
+            showWatermark = this@SettingsUI.showWatermark.isSelected
+            watermarkText = this@SettingsUI.watermarkText.text
+            watermarkStyle = WatermarkStyle.fromDisplayName(this@SettingsUI.watermarkStyle.selectedItem as String)
         }
 
     fun fromState(state: SettingsState.State) {
@@ -83,11 +98,20 @@ class SettingsUI {
         windowRoundnessInp.value = state.windowRoundness
         showWindowControls.isSelected = state.showWindowControls
         showFileName.isSelected = state.showFileName
+        showWatermark.isSelected = state.showWatermark
+        watermarkText.text = state.watermarkText
+        watermarkStyle.selectedItem = state.watermarkStyle.displayName
         initialBgColor = state.getBackgroundJbColor()
         updateColorPreview()
+        updateWatermarkFieldsState()
     }
 
     fun getPanel(): JPanel = panel
+
+    private fun updateWatermarkFieldsState() {
+        watermarkText.isEnabled = showWatermark.isSelected
+        watermarkStyle.isEnabled = showWatermark.isSelected
+    }
 
     private fun formatColor(c: Color): String =
         String.format(

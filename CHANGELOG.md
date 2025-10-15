@@ -6,6 +6,13 @@ This project adheres to [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+## [1.0.0] - 2025-10-15
+### Added
+- Added configurable watermark feature
+  - Option to enable/disable watermark
+  - Custom watermark text support
+  - Choice of horizontal or diagonal watermark style
+
 ## [0.2.0] - 2025-09-12
 ### Added
 - Added support for IntelliJ IDEA versions from 232 to 243
@@ -21,3 +28,4 @@ This project adheres to [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 ---
 [0.1.0]: https://github.com/anton-erofeev/smart-code-screenshots-intellij-plugin/releases/tag/v0.1.0
 [0.2.0]: https://github.com/anton-erofeev/smart-code-screenshots-intellij-plugin/releases/tag/v0.2.0
+[1.0.0]: https://github.com/anton-erofeev/smart-code-screenshots-intellij-plugin/releases/tag/v1.0.0

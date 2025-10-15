@@ -38,7 +38,10 @@ class SettingsState : PersistentStateComponent<SettingsState.State> {
         var windowRoundness: Int = 10,
         var showWindowControls: Boolean = true,
         var backgroundColor: Int = 0xffabb8c3.toInt(),
-        var showFileName: Boolean = true
+        var showFileName: Boolean = true,
+        var showWatermark: Boolean = false,
+        var watermarkText: String = "Watermark",
+        var watermarkStyle: WatermarkStyle = WatermarkStyle.HORIZONTAL
     ) {
         fun getBackgroundJbColor(): Color =
             JBColor(Color(backgroundColor, true), Color(backgroundColor, true))
