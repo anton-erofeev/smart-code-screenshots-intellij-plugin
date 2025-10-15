@@ -12,6 +12,7 @@ Smart Code Screenshots is a plugin for IntelliJ IDEA that lets you quickly creat
 - Copy screenshots to clipboard with a single command
 - Save screenshots as PNG files
 - Quick access via editor context menu and keyboard shortcut
+- Customizable watermark with support for horizontal or diagonal placement
 
 ## How to Use
 1. Select the code fragment you want in the editor.
@@ -29,6 +30,9 @@ Smart Code Screenshots is a plugin for IntelliJ IDEA that lets you quickly creat
 ## Requirements
 - IntelliJ IDEA 2022.3 or newer
 - JDK 17+
+
+## Settings
+You can customize plugin settings in **Settings → Tools → Smart Code Screenshots**
 
 ## Feedback & Contributions
 - Report bugs and suggest features via [Issues](https://github.com/antonerofeev/smart-code-screenshots-intellij-plugin/issues)

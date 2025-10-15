@@ -119,6 +119,8 @@ class ScreenshotBuilder(
             if (hasTitleBar(state)) outerPaddingV + topPadding else paddingY.toDouble()
         )
 
+        drawWatermark(g, state, imgWidth, imgHeight)
+
         g.dispose()
         return img
     }
@@ -222,6 +224,49 @@ class ScreenshotBuilder(
     private fun hasTitleBar(state: SettingsState.State): Boolean =
         state.showWindowControls || state.showFileName
 
+    private fun drawWatermark(
+        g: Graphics2D,
+        state: SettingsState.State,
+        imgWidth: Int,
+        imgHeight: Int
+    ) {
+        if (!state.showWatermark || state.watermarkText.isEmpty()) return
+
+        val oldTransform = g.transform
+        val oldComposite = g.composite
+        val oldFont = g.font
+        val oldPaint = g.paint
+        
+        g.transform = AffineTransform()
+        
+        g.font = Font("SansSerif", Font.ITALIC, (20 * state.scale).toInt())
+        g.composite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f)
+        g.paint = JBColor.GRAY
+
+        val text = state.watermarkText
+        val metrics = g.fontMetrics
+        val textWidth = metrics.stringWidth(text)
+        val textHeight = metrics.height
+
+        if (state.watermarkStyle == WatermarkStyle.DIAGONAL) {
+            g.rotate(Math.toRadians(-45.0), imgWidth / 2.0, imgHeight / 2.0)
+        }
+        
+        val x = (imgWidth - textWidth) / 2
+        val y = if (state.watermarkStyle == WatermarkStyle.HORIZONTAL) {
+            (imgHeight + textHeight) / 2
+        } else {
+            (imgHeight + textHeight) / 2 + textHeight
+        }
+
+        g.drawString(text, x, y)
+        
+        g.transform = oldTransform
+        g.composite = oldComposite
+        g.font = oldFont
+        g.paint = oldPaint
+    }
+
     private fun resetEditor() {
         val document = editor.document
         val range = getRange(editor)
@@ -246,7 +291,6 @@ class ScreenshotBuilder(
         val start = range.startOffset
         val end = range.endOffset
         val r = Rectangle2D.Double()
-
 
         for (i in start until end) {
             addCharBounds(r, i, text, range, options)
