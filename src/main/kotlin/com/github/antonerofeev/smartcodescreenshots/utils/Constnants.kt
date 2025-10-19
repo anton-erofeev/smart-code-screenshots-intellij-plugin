@@ -4,6 +4,9 @@ import com.intellij.ui.JBColor
 import java.awt.Color
 
 object Constants {
+    const val NOTIFICATION_GROUP = "Smart Code Screenshots"
+    const val PLUGIN_NAME = "Smart Code Screenshots"
+
     val GREEN = JBColor(Color(43, 204, 31), Color(43, 204, 31))
     val YELLOW = JBColor(Color(204, 159, 31), Color(204, 159, 31))
     val RED = JBColor(Color(204, 50, 31), Color(204, 50, 31))

@@ -6,6 +6,14 @@ This project adheres to [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-10-19
+### Added
+- Interactive screenshot preview window
+  - Added "Show Preview" action to screenshot notifications which opens an interactive preview dialog
+  - Preview dialog supports: Save to file, Copy to clipboard, Fit-to-window, Reset (100%), Zoom in/out and displays current zoom percent
+  - Mouse and keyboard controls: drag-to-pan, Ctrl+MouseWheel zoom (centered on cursor), keyboard shortcuts for zoom (+/-) and reset (Ctrl+0)
+  - Preview dialog scales and centers the image on resize
+
 ## [1.0.0] - 2025-10-15
 ### Added
 - Added configurable watermark feature

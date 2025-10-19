@@ -1,5 +1,6 @@
 package com.github.antonerofeev.smartcodescreenshots.utils
 
+import com.github.antonerofeev.smartcodescreenshots.enums.WatermarkStyle
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.SettingsCategory

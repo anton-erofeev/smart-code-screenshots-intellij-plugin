@@ -2,7 +2,7 @@ package com.github.antonerofeev.smartcodescreenshots.ui.settings
 
 import com.github.antonerofeev.smartcodescreenshots.utils.SettingsState
 import com.github.antonerofeev.smartcodescreenshots.utils.Constants.BACKGROUND_COLOR
-import com.github.antonerofeev.smartcodescreenshots.utils.WatermarkStyle
+import com.github.antonerofeev.smartcodescreenshots.enums.WatermarkStyle
 import com.intellij.ui.ColorChooserService
 import com.intellij.ui.JBColor
 import java.awt.Color
