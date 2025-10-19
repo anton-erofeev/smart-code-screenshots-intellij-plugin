@@ -23,7 +23,7 @@
     </actions>
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.antonerofeev.smartcodescreenshots.utils.SettingsState"/>
-        <notificationGroup displayType="BALLOON" id="Code Screenshots" isLogByDefault="false"/>
+        <notificationGroup displayType="BALLOON" id="Smart Code Screenshots" isLogByDefault="false"/>
         <applicationConfigurable
                 groupId="editor"
                 instance="com.github.antonerofeev.smartcodescreenshots.ui.ConfigProvider"

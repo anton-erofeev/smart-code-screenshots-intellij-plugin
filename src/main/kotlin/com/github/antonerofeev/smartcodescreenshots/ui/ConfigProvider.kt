@@ -2,6 +2,7 @@ package com.github.antonerofeev.smartcodescreenshots.ui
 
 import com.github.antonerofeev.smartcodescreenshots.utils.SettingsState
 import com.github.antonerofeev.smartcodescreenshots.ui.settings.SettingsUI
+import com.github.antonerofeev.smartcodescreenshots.utils.Constants.PLUGIN_NAME
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.openapi.util.NlsContexts
@@ -13,7 +14,7 @@ class ConfigProvider : SearchableConfigurable, Configurable.NoScroll {
 
     override fun getId(): String = "code-screenshots"
 
-    override fun getDisplayName(): @NlsContexts.ConfigurableName String = "Code Screenshots"
+    override fun getDisplayName(): @NlsContexts.ConfigurableName String = PLUGIN_NAME
 
     override fun createComponent(): JComponent? {
         panel = SettingsUI().apply { init() }

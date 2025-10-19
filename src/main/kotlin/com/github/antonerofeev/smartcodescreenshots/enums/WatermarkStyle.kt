@@ -1,4 +1,4 @@
-package com.github.antonerofeev.smartcodescreenshots.utils
+package com.github.antonerofeev.smartcodescreenshots.enums
 
 enum class WatermarkStyle(val displayName: String) {
     HORIZONTAL("Horizontal"),
