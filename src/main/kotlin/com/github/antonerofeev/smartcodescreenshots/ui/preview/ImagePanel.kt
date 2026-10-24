@@ -4,7 +4,6 @@ import java.awt.Cursor
 import java.awt.Dimension
 import java.awt.Graphics
 import java.awt.Graphics2D
-import java.awt.Image
 import java.awt.Point
 import java.awt.RenderingHints
 import java.awt.event.ComponentAdapter
@@ -87,6 +86,7 @@ class ImagePanel(initialImage: BufferedImage) : JComponent() {
 
     fun computeFit() {
         if (width <= 0 || height <= 0) return
+        fitToWindow = true
         scale = (width.toDouble() / image.width).coerceAtMost(height.toDouble() / image.height)
         offsetX = 0
         offsetY = 0
@@ -99,10 +99,10 @@ class ImagePanel(initialImage: BufferedImage) : JComponent() {
 
         val cx = centerX ?: (width / 2)
         val cy = centerY ?: (height / 2)
-        val imgCX = (cx - offsetX) / old
-        val imgCY = (cy - offsetY) / old
-        offsetX = (cx - imgCX * scale).toInt()
-        offsetY = (cy - imgCY * scale).toInt()
+        val imgCX = (cx - width / 2 - offsetX) / old
+        val imgCY = (cy - height / 2 - offsetY) / old
+        offsetX = (cx - width / 2 - imgCX * scale).toInt()
+        offsetY = (cy - height / 2 - imgCY * scale).toInt()
         fitToWindow = false
         repaint()
     }
@@ -120,8 +120,8 @@ class ImagePanel(initialImage: BufferedImage) : JComponent() {
             offsetY = 0
         }
 
-        val drawWith = (image.width * scale).toInt()
-        val drawHeight = (image.height * scale).toInt()
+        val drawWith = (image.width * scale).toInt().coerceAtLeast(1)
+        val drawHeight = (image.height * scale).toInt().coerceAtLeast(1)
 
         val cx = (width - drawWith) / 2
         val cy = (height - drawHeight) / 2
@@ -129,7 +129,6 @@ class ImagePanel(initialImage: BufferedImage) : JComponent() {
         val x = cx + offsetX
         val y = cy + offsetY
 
-        val scaled: Image = image.getScaledInstance(drawWith, drawHeight, Image.SCALE_SMOOTH)
-        g2.drawImage(scaled, x, y, drawWith, drawHeight, null)
+        g2.drawImage(image, x, y, drawWith, drawHeight, null)
     }
 }

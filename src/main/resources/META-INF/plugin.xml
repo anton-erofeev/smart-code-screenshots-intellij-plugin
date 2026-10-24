@@ -25,9 +25,9 @@
         <applicationService serviceImplementation="com.github.antonerofeev.smartcodescreenshots.utils.SettingsState"/>
         <notificationGroup displayType="BALLOON" id="Smart Code Screenshots" isLogByDefault="false"/>
         <applicationConfigurable
-                groupId="editor"
+                groupId="tools"
                 instance="com.github.antonerofeev.smartcodescreenshots.ui.ConfigProvider"
                 id="code-screenshots"
-                displayName="Code Screenshots"/>
+                displayName="Smart Code Screenshots"/>
     </extensions>
 </idea-plugin>

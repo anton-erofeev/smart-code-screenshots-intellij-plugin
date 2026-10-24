@@ -22,11 +22,13 @@ object ScreenshotHandler {
 
         val fileName = getCurrentFileName(project)
         val image = ScreenshotBuilder(editor, fileName).createImage()
-
-        image?.let {
-            Clipboard.copy(it)
-            showNotification(project, it)
+        if (image == null) {
+            Notifications.showError(project, "Failed to create screenshot. See IDE logs for details.")
+            return
         }
+
+        val copiedToClipboard = Clipboard.copy(image, project)
+        showNotification(project, image, copiedToClipboard)
     }
 
     private fun getCurrentFileName(project: Project): String? {
@@ -35,16 +37,18 @@ object ScreenshotHandler {
     }
 
 
-    private fun showNotification(project: Project, image: BufferedImage) {
+    private fun showNotification(project: Project, image: BufferedImage, copiedToClipboard: Boolean) {
         val notification = NotificationGroupManager.getInstance()
             .getNotificationGroup(NOTIFICATION_GROUP)
-            .createNotification("Image copied", NotificationType.INFORMATION)
+            .createNotification(
+                if (copiedToClipboard) "Image copied" else "Screenshot created",
+                NotificationType.INFORMATION
+            )
             .setTitle(PLUGIN_NAME)
 
         notification.addAction(createAction("Show Preview") { _ ->
             val dialog = ImagePreviewDialog(project, image)
             dialog.showCentered()
-            notification.notify(project)
         })
 
         notification.addAction(createAction("Save to File") {
