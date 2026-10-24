@@ -6,6 +6,12 @@ This project adheres to [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-10-24
+### Fixed (bug fixes)
+- Fixed preview zoom positioning and Fit-to-window behavior after resizing.
+- Improved error handling and notifications when screenshot creation, clipboard copying, or saving fails.
+- Fixed the preview action showing the screenshot notification again after closing the dialog.
+
 ## [1.1.0] - 2025-10-19
 ### Added
 - Interactive screenshot preview window
@@ -37,3 +43,5 @@ This project adheres to [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 [0.1.0]: https://github.com/anton-erofeev/smart-code-screenshots-intellij-plugin/releases/tag/v0.1.0
 [0.2.0]: https://github.com/anton-erofeev/smart-code-screenshots-intellij-plugin/releases/tag/v0.2.0
 [1.0.0]: https://github.com/anton-erofeev/smart-code-screenshots-intellij-plugin/releases/tag/v1.0.0
+[1.1.0]: https://github.com/anton-erofeev/smart-code-screenshots-intellij-plugin/releases/tag/v1.1.0
+[1.1.1]: https://github.com/anton-erofeev/smart-code-screenshots-intellij-plugin/releases/tag/v1.1.1

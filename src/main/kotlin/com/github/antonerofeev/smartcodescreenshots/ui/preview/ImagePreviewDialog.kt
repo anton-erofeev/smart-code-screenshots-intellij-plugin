@@ -52,7 +52,7 @@ class ImagePreviewDialog(private val project: Project, private val image: Buffer
         }
 
         copyBtn.addActionListener {
-            Clipboard.copy(image)
+            Clipboard.copy(image, project)
         }
 
         zoomInBtn.addActionListener {
